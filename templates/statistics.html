@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Statistics
+{% endblock %}
+
+{% block main %}
+    <form action="/statistics" method="post">
+        <div class="form-group">
+            <select class="form-control" name="deck" onchange="this.form.submit();">
+                <option value="all">All decks</option>
+                {% for deck in decks %}
+                    <option value="{{ deck.name }}" {% if name == deck.name %} selected {% endif %}>{{ deck.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </form>
+
+    <div class="stats-plot">
+        <img src="{{ url }}" alt="" height="auto" width="auto">
+    </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    {% if decks %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Learned</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for deck in decks %}
+                    <tr>
+                        <td>{{ deck.name }}</td>
+                        <td>{{ deck.learned }}</td>
+                        <td>{{ deck.total }}</td>
+                        <td>
+                            <a href="/learn/{{deck.name}}"><button class="btn btn-primary" type="submit">Learn</button></a>
+                            <a href="/review/{{deck.name}}"><button class="btn btn-secondary" type="submit">Review</button></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        You have no deck.
+    {% endif %}
+    <div class="create-deck">
+        <form action="/" method="post">
+            New deck:
+            <input autocomplete="off" autofocus class="form-control" name="name" placeholder="Deck's Name" type="text">
+            <button class="btn btn-info" type="submit">Create Deck</button>
+        </form>
+    </div>
+{% endblock %}

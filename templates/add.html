@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post">
+        <div class="form-group">
+            <select class="form-control" name="deck">
+                {% for deck in decks %}
+                  <option value="{{ deck.name }}">{{ deck.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="front" placeholder="Front" type="text">
+        </div>
+
+        <!-- TODO: need text area for card's back -->
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="back" placeholder="Back" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+{% endblock %}

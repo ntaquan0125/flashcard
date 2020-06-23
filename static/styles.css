@@ -1,0 +1,42 @@
+main .form-control {
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main {
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img {
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+.card-front {
+    font-size: 36px;
+}
+
+.card-back {
+    font-size: 30px;
+}
+
+.inline-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+    padding : 8px 16px;
+}
+
+.inline-btn form {
+    display: inline;
+}

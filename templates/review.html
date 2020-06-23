@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Review
+{% endblock %}
+
+{% block main %}
+    {% if card %}
+        <div class="card-front">
+            <strong>{{ card.front }}</strong>
+        </div>
+
+        <div class="card-back" style="display: none">
+            {{ card.back }}
+        </div>
+
+        <div class="inline-btn">
+            <a href="/"><button class="exit-btn btn btn-secondary" type="submit">Exit</button></a>
+
+            <button class="answer-btn btn btn-warning" onclick="showAnswer();">Answer</button>
+
+            <div class="progress-btn" style="display: none">
+                <form action="/review/{{ deck }}" method="post">
+                    <button class="btn btn-danger" type="submit" name="card" value="{{ card.front }}">Fogot</button>
+                </form>
+                <form action="/review/{{ deck }}" method="get">
+                    <button class="btn btn-success" type="submit">Next Card</button></a>
+                </form>
+            </div>
+        </div>
+
+    {% else %}
+        You have no card to review.
+        <div class="inline-btn">
+            <a href="/"><button class="exit-btn btn btn-secondary" type="submit">Exit</button></a>
+            <a href="/learn/{{ deck }}"><button class="btn btn-primary" type="submit">Learn</button></a>
+        </div>
+    {% endif %}
+{% endblock %}

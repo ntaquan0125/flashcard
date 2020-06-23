@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Searched
+{% endblock %}
+
+{% block main %}
+    {% if cards %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Front</th>
+                    <th>Back</th>
+                    <th>Deck</th>
+                    <th>Time Adding</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for card in cards %}
+                    <tr>
+                        <td>{{ card.front }}</td>
+                        <td>{{ card.back }}</td>
+                        <td>{{ card.deck }}</td>
+                        <td>{{ card.time }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        Card not found.
+    {% endif %}
+{% endblock %}

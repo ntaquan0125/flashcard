@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+    <form action="/search" method="post">
+        <div class="form-group">
+            <select class="form-control" name="deck">
+                {% for deck in decks %}
+                    <option value="{{ deck.name }}">{{ deck.name }}</option>
+                {% endfor %}
+                    <option value="all" selected>All decks</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="on" autofocus class="form-control" name="search" placeholder="Search" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+{% endblock %}
